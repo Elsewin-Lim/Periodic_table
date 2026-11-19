@@ -10,5 +10,6 @@ then
   exit 0
 fi
 
-# Otherwise, use $1 in your PSQL query
+
 echo "You searched for: $1"
+
