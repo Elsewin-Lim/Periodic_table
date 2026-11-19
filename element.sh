@@ -11,5 +11,11 @@ then
 fi
 
 
-echo "You searched for: $1"
+
+if [[ $1 =~ ^[0-9]+$ ]]
+then
+  CONDITION="e.atomic_number = $1"
+else
+  CONDITION="e.symbol = '$1' OR e.name = '$1'"
+fi
 
