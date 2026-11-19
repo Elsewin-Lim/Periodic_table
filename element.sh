@@ -10,8 +10,6 @@ then
   exit 0
 fi
 
-
-
 if [[ $1 =~ ^[0-9]+$ ]]
 then
   CONDITION="e.atomic_number = $1"
@@ -26,3 +24,7 @@ then
   echo "I could not find that element in the database."
   exit 0
 fi
+
+IFS="|" read -r ATOMIC_NUMBER NAME SYMBOL TYPE MASS MELTING BOILING <<< "$ELEMENT_INFO"
+
+echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $MASS amu. $NAME has a melting point of $MELTING celsius and a boiling point of $BOILING celsius."
